@@ -20,20 +20,20 @@ jobs:
 
     steps: 
      - name: Get repo code
-     - uses: actions/checkout@v4
+       uses: actions/checkout@v4
 
      - name: Validate html files
-     - run: test -f index.html
+       run: test -f index.html
 
   validate-js:
     runs-on: ubuntu-latest
 
     steps: 
       - name: Get repo code
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
     
       - name: Validate javascript files
-      - run: |
+        run: |
           files=$(find . -name "*.js") 
           test -f js/main.jobs
 
