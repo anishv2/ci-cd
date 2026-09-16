@@ -1,0 +1,24 @@
+name: Sequencial WF
+on: 
+  workflow_run:
+    workflows: [CI Test]
+    type: 
+      - completed
+    
+jobs:
+  validate-js-code:
+    runs-on: ubuntu latest
+
+    steps:  
+    - name: Get the updated code from repo
+      uses: actions/checkout@v4
+
+    - name: Check code validation and syntax
+      run: |
+          files=$(find . -name "*.js") 
+          node --check js/main.js
+
+          for file in $files; do
+            echo "Checking $file"
+            node --check "$file"
+          done
