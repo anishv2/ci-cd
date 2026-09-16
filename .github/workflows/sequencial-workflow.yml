@@ -2,12 +2,12 @@ name: Sequencial WF
 on: 
   workflow_run:
     workflows: [CI Test]
-    type: 
+    types: 
       - completed
     
 jobs:
   validate-js-code:
-    runs-on: ubuntu latest
+    runs-on: ubuntu-latest
 
     steps:  
     - name: Get the updated code from repo
