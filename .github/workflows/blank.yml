@@ -35,10 +35,10 @@ jobs:
       - name: Validate javascript files
         run: |
           files=$(find . -name "*.js") 
-          test -f js/main.jobs
+          test -f js/main.js
 
-          for file in files; do
-            echo "Checking file names"
+          for file in $files; do
+            echo "Checking $file"
             test -f "$file"
           done
 
